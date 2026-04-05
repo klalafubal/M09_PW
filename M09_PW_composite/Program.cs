@@ -30,7 +30,7 @@ public class Employee : OrganizationComponent
 
     public override void Display(int depth)
     {
-        Console.WriteLine(new string('-', depth) + $" Военнослужащий: {Name}, {Position} (Денежное довольствие: {Salary:C})");
+        Console.WriteLine(new string('-', depth) + $" Военнослужащий: {Name}, {Position} (Денежное довольствие: {Salary} KRM)");
     }
 
     public override decimal GetBudget() => Salary;
@@ -63,7 +63,7 @@ public class Contractor : OrganizationComponent
 
     public override void Display(int depth)
     {
-        Console.WriteLine(new string('-', depth) + $" Гражданский специалист: {Name}, {Position} (Фикс. оплата: {FixedPay:C} - вне бюджета)");
+        Console.WriteLine(new string('-', depth) + $" Гражданский специалист: {Name}, {Position} (Фикс. оплата: {FixedPay} KRM - вне бюджета)");
     }
 
     public override decimal GetBudget() => 0;
@@ -96,7 +96,7 @@ public class Department : OrganizationComponent
 
     public override void Display(int depth)
     {
-        Console.WriteLine(new string('-', depth) + $" Подразделение: {Name} (Бюджет: {GetBudget():C}, Личный состав: {GetStaffCount()})");
+        Console.WriteLine(new string('-', depth) + $" Подразделение: {Name} (Бюджет: {GetBudget()} KRM, Личный состав: {GetStaffCount()})");
         foreach (var component in _components)
         {
             component.Display(depth + 2);
